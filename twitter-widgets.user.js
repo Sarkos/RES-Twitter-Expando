@@ -11,5 +11,5 @@ var siteTable = document.getElementById('siteTable');
 if (siteTable) {
 	new MutationObserver(function() {
 		twttr.widgets.load();
-	}).observe(siteTable, { childList:true, subtree:true });
+	}).observe(siteTable.parentNode, { childList:true, subtree:true });
 }

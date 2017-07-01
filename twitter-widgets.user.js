@@ -9,7 +9,11 @@
 
 var siteTable = document.getElementById('siteTable');
 if (siteTable) {
-	new MutationObserver(function() {
-		twttr.widgets.load();
+	new MutationObserver(function(mutations) {
+		mutations.forEach(function(mutation) {
+			if (mutation.target.className && mutation.target.className.indexOf('res-media-host-twitter') != -1) {
+				twttr.widgets.load();
+			}
+		});
 	}).observe(siteTable.parentNode, { childList:true, subtree:true });
 }

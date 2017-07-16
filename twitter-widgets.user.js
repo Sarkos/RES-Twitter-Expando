@@ -11,7 +11,8 @@ var siteTable = document.getElementById('siteTable');
 if (siteTable) {
 	new MutationObserver(function(mutations) {
 		mutations.forEach(function(mutation) {
-			if (mutation.target.className && mutation.target.className.indexOf('res-media-host-twitter') != -1) {
+			var cn = mutation.target.className;
+			if (cn && (cn.indexOf('res-media-host-twitter') != -1 || cn.indexOf('res-expando-box') != -1)) {
 				twttr.widgets.load();
 			}
 		});
